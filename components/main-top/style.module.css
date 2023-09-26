@@ -1,0 +1,36 @@
+.mainH2 {
+    line-height: 53px;
+    font-size: 20px;
+    padding: 0 16px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    border-bottom: 1px solid #2f3336;
+}
+
+.nav a {
+    font-size: 15px;
+    color: #999;
+    font-weight: 500;
+}
+
+.nav .navActive {
+    font-weight: 700;
+    border-bottom: 3px solid rgb(29, 155, 240);
+    color: #fff;
+    padding-bottom: 14px;
+}
+
+.nav>div {
+    width: 50%;
+    text-align: center;
+}
+
+.nav>div:hover {
+    background-color: rgba(231, 233, 234, 0.1);
+}

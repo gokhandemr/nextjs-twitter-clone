@@ -1,0 +1,109 @@
+.header {
+    width: 275px;
+    height: 100%;
+    padding: 3px 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.header h1 {
+    margin-bottom: 5px;
+    width: fit-content;
+    border-radius: 23px;
+}
+
+.header h1 svg {
+    width: 50px;
+    height: 30px;
+    fill: white;
+}
+
+.header svg {
+    fill: white;
+    width: 27px;
+    height: 27px;
+}
+
+.header a,
+.nav a {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.nav a span {
+    margin-right: 16px;
+    margin-left: 20px;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    border-radius: 23px;
+    height: 100%;
+    padding: 0 12px;
+}
+
+.container:hover,
+.user:hover,
+.header h1:hover {
+    background-color: rgba(231, 233, 234, 0.1);
+    transition: all .3s;
+}
+
+.button {
+    background-color: rgb(29, 155, 240);
+    margin: 10px 0;
+    width: 80%;
+    line-height: 52px;
+    justify-content: center;
+    border-radius: 23px;
+    font-weight: 700;
+    color: white;
+}
+
+.user {
+    padding: 8px 12px;
+    margin: 14px 0;
+    width: fit-content;
+    border-radius: 23px;
+    cursor: pointer;
+}
+
+.userIMG {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 15px;
+    float: left;
+}
+
+.userIMG img {
+    border-radius: 100%;
+}
+
+.userDetails {
+    float: left;
+    font-size: 15px;
+}
+
+.userDetails>:first-child {
+    width: 100%;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.userDetails>:last-child {
+    font-weight: 400;
+    color: #999;
+}
+
+.user>svg {
+    margin-top: 5px;
+}
