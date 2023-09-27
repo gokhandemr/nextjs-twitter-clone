@@ -1,6 +1,5 @@
 import './globals.css'
 import LeftBar from '@/components/leftbar'
-import RightBar from '@/components/rightbar'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,10 +15,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className='container'>
           <LeftBar />
-          <main>
-            {children}
-          </main>
-          <RightBar />
+          {children}
+          {/* <Footer /> */}
         </div>
       </body>
     </html>

@@ -11,6 +11,7 @@ function MainForm() {
     const formSubmitFunction = (e) => {
         e.preventDefault()
         alert(inputValue)
+        setInputValue('')
     }
 
     return (
