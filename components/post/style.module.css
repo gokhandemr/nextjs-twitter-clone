@@ -2,19 +2,22 @@
     padding: 12px 16px;
     border-bottom: 1px solid #2f3336;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
-.userIMG {
+.userIMG a {
     width: 40px;
     height: 40px;
     margin-right: 12px;
     position: relative;
+    display: block;
 }
 
 .userIMG img {
     border: 1px solid #2f3336;
     border-radius: 100%;
+    background-color: rgb(51, 54, 57);
 }
 
 .postBody {
@@ -25,6 +28,10 @@
 .postBody h4 {
     display: inline;
     margin-right: 10px;
+}
+
+.postBody h4:hover {
+    text-decoration: underline;
 }
 
 .postBody span {
@@ -49,4 +56,37 @@
 
 .postBody svg:hover {
     background-color: #0a171f;
+}
+
+.postBottomIcons {
+    width: calc(100% - 54px);
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 0 0;
+    color: #575757;
+    font-size: 13px;
+}
+
+.postBottomIcons>div {
+    display: flex;
+    align-items: center;
+}
+
+.postBottomIcons svg {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    fill: #575757;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.postBottomIcons>div:hover {
+    color: #ddd;
+    cursor: pointer;
+}
+
+.postBottomIcons>div:hover svg {
+    background-color: #333;
+    fill: #ddd;
 }

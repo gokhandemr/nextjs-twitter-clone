@@ -2,6 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    border-bottom: 1px solid #2f3336;
 }
 
 .blurBackground {
@@ -14,8 +15,36 @@
     top: 0;
 }
 
+.mainTop.isStatus {
+    border: 0;
+}
+
+.isUserPage>button:first-child,
+.isStatus>button:first-child {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.isUserPage svg,
+.isStatus svg {
+    width: 20px;
+    height: 20px;
+    z-index: 2222;
+    position: relative;
+    fill: rgb(239, 243, 244);
+    display: inline-block;
+    line-height: 52px;
+    margin: 0 16px;
+}
+
+.isUserPage .mainH2,
+.isStatus .mainH2 {
+    display: inline-block;
+}
+
 .mainH2 {
-    line-height: 53px;
+    line-height: 54px;
     font-size: 20px;
     padding: 0 16px;
     z-index: 5;
@@ -30,7 +59,6 @@
     width: 100%;
     height: 52px;
     line-height: 52px;
-    border-bottom: 1px solid #2f3336;
 }
 
 .nav a {
@@ -41,7 +69,7 @@
 
 .nav .navActive {
     font-weight: 700;
-    border-bottom: 3px solid rgb(29, 155, 240);
+    border-bottom: 4px solid rgb(29, 155, 240);
     color: #fff;
     padding-bottom: 14px;
 }
@@ -53,4 +81,21 @@
 
 .nav>div:hover {
     background-color: rgba(231, 233, 234, 0.1);
+}
+
+.isMainIcon {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    fill: #ddd;
+    position: absolute;
+    right: 16px;
+    z-index: 10;
+    top: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.isMainIcon:hover {
+    background-color: #333;
 }

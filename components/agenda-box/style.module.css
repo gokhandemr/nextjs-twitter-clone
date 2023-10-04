@@ -1,0 +1,84 @@
+.agendaBox h3 {
+    font-size: 20px;
+}
+
+.agendaBox {
+    width: 100%;
+    height: auto;
+    background-color: #16181c;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.agendaBox h3,
+.agendaBox ul li a {
+    padding: 13px 16px;
+}
+
+.agendaBox ul li a {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.agendaBox ul li a:hover {
+    background-color: #1d1f23;
+}
+
+.agendaBox ul li p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.agendaBox ul li p:nth-child(1),
+.agendaBox ul li p:nth-child(3) {
+    font-size: 13px;
+    color: #6d6d6d;
+}
+
+.agendaBox ul li p:nth-child(2) {
+    font-weight: 700;
+    margin: 5px 0;
+    padding-right: 50px;
+}
+
+.agendaBox ul li a svg {
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    fill: #71767b;
+    border-radius: 50%;
+}
+
+.agendaBox ul li a svg:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+    fill: #5d9edf;
+}
+
+.showMoreButton {
+    color: rgb(29, 155, 240);
+    padding: 20px;
+    display: block;
+}
+
+.showMoreButton:hover {
+    background-color: #1d1f23;
+    border-radius: 0 0 15px 15px;
+}
+
+.agendaBox.isMain {
+    background: transparent;
+}
+
+.agendaBox.isMain>.showMoreButton {
+    border-bottom: 1px solid #1d1f23;
+    padding: 20px 15px;
+}
+
+.agendaBox.isMain>.showMoreButton:hover {
+    border-radius: 0;
+}

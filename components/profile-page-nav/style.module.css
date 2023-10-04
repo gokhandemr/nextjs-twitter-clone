@@ -1,0 +1,42 @@
+.profilePageNav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 16px;
+    margin-top: 16px;
+    border-bottom: 1px solid #2f3336;
+}
+
+.profilePageNav a {
+    line-height: 53px;
+    width: 25%;
+    text-align: center;
+    color: #888;
+    font-size: 15px;
+    position: relative;
+}
+
+.profilePageNav a.active {
+    font-weight: 800;
+    color: #ddd;
+}
+
+.profilePageNav a.active::after {
+    content: '_';
+    width: 75px;
+    height: 4px;
+    font-size: 0;
+    color: rgb(29, 155, 240);
+    background-color: rgb(29, 155, 240);
+    position: absolute;
+    border-radius: 7px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.profilePageNav a:hover {
+    background-color: #2f3336;
+}

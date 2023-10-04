@@ -1,0 +1,56 @@
+.showMore {
+    position: fixed;
+    background: #000;
+    bottom: 155px;
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 0 7px 3px #ffffff2e;
+    z-index: 10;
+}
+
+.showMore>div:first-child>a {
+    line-height: 60px;
+    height: 60px;
+    padding: 0 16px;
+}
+
+.showMore>div:first-child>a span {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.showMore>div:first-child>a:last-child {
+    border-bottom: 1px solid rgb(47, 51, 54);
+}
+
+.showMore>div:first-child> a svg {
+    margin-right: 24px;
+}
+
+.showMore>div:nth-child(2)>a {
+    line-height: 52px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.showMore>div:nth-child(2)>a span {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.showMore>div:nth-child(1) a:first-child {
+    border-radius: 15px 15px 0 0;
+}
+
+.showMore>div:nth-child(2) a:last-child {
+    border-radius: 0 0 15px 15px;
+}
+
+
+.showMore a:hover {
+    background-color: #333;
+}

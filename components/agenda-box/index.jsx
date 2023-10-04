@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import style from './style.module.css'
 
-function AgendaBox() {
+function AgendaBox({ isMain }) {
     return (
-        <section className={style.agendaBox}>
+        <section className={`${style.agendaBox} ${isMain && style.isMain}`}>
             <h3>İlgini çekebilecek gündemler</h3>
             <ul>
                 <li>

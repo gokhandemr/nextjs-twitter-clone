@@ -1,0 +1,82 @@
+.messages {
+    display: flex;
+    height: 100vh;
+}
+
+.leftBar {
+    width: 390px;
+    border-right: 1px solid #2f3336;
+}
+
+.leftBar svg {
+    width: 40px;
+    height: 40px;
+    fill: #ddd;
+    border-radius: 100%;
+    padding: 10px;
+}
+
+.leftBar svg:hover {
+    background-color: #333333;
+}
+
+.leftBar>div:first-child {
+    width: 100%;
+    height: 53px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leftBar>div:first-child>h2 {
+    font-size: 20px;
+}
+
+.leftBar>div:last-child {
+    padding: 32px;
+}
+
+.leftBar>div:last-child>p:first-child {
+    font-size: 31px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.leftBar>div:last-child>p:nth-child(2),
+.rightBar>div:first-child>p:nth-child(2) {
+    font-size: 15px;
+    margin-bottom: 28px;
+    color: #777;
+}
+
+.leftBar>div:last-child>a,
+.rightBar>div:first-child>a {
+    background-color: rgb(29, 155, 240);
+    width: 146px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 30px;
+    text-align: center;
+    display: block;
+    font-weight: 700;
+}
+
+.rightBar {
+    width: 600px;
+    margin: 64px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rightBar>div:first-child {
+    width: 336px;
+    margin: auto;
+}
+
+.rightBar>div:first-child>p:first-child {
+    font-size: 31px;
+    font-weight: 800;
+    line-height: 36px;
+    margin-bottom: 8px;
+}

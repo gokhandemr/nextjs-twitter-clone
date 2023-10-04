@@ -1,26 +1,32 @@
 .header {
-    width: 275px;
+    margin-right: -5px;
+    color: #e7e9ea;
+}
+
+.header svg {
+    fill: #e7e9ea;
+}
+
+.header>div:first-child {
+    position: fixed;
+    top: 0;
+    padding-top: 3px;
     height: 100%;
-    padding: 3px 0;
-    display: flex;
-    flex-direction: column;
     overflow-y: auto;
 }
 
 .header h1 {
     margin-bottom: 5px;
     width: fit-content;
-    border-radius: 23px;
+    border-radius: 100%;
 }
 
 .header h1 svg {
     width: 50px;
     height: 30px;
-    fill: white;
 }
 
 .header svg {
-    fill: white;
     width: 27px;
     height: 27px;
 }
@@ -58,21 +64,25 @@
 }
 
 .button {
-    background-color: rgb(29, 155, 240);
-    margin: 10px 0;
     width: 80%;
     line-height: 52px;
+    margin: 10px 0 0 0;
     justify-content: center;
-    border-radius: 23px;
-    font-weight: 700;
-    color: white;
+    font-size: 17px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1d9bf0;
+    border: 0;
+    cursor: pointer;
 }
 
 .user {
+    width: 95%;
+    height: 65px !important;
     padding: 8px 12px;
     margin: 14px 0;
-    width: fit-content;
-    border-radius: 23px;
+    border-radius: 35px;
     cursor: pointer;
 }
 
@@ -86,6 +96,12 @@
 
 .userIMG img {
     border-radius: 100%;
+    background-color: rgb(51, 54, 57);
+}
+
+.user svg {
+    width: 18px;
+    height: 18px;
 }
 
 .userDetails {
@@ -99,11 +115,11 @@
     font-weight: 700;
 }
 
-.userDetails>:last-child {
-    font-weight: 400;
-    color: #999;
-}
-
 .user>svg {
     margin-top: 5px;
+}
+
+.nav a.active span,
+.nav a.active svg {
+    font-weight: 800;
 }

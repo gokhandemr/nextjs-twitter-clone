@@ -1,0 +1,78 @@
+.followBox h3 {
+    font-size: 20px;
+}
+
+.followBox {
+    width: 100%;
+    height: auto;
+    background-color: #16181c;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.followBox h3,
+.followBox ul li a {
+    padding: 13px 16px;
+}
+
+
+.followBox ul li a:hover {
+    background-color: #1d1f23;
+}
+
+.followBoxUserIMG {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.followBoxUserIMG img {
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+.followBox ul li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.followBox ul li a>div:nth-child(2) {
+    width: calc(100% - 50px);
+    position: relative;
+}
+
+.followBox button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.followBox p:nth-child(2) {
+    color: #777;
+    font-size: 14px;
+}
+
+.followBox p:nth-child(1) {
+    font-weight: 600;
+}
+
+.followBox p:nth-child(1):hover {
+    text-decoration: underline;
+}
+
+.showMoreButton {
+    color: rgb(29, 155, 240);
+    padding: 20px;
+    display: block;
+}
+
+.showMoreButton:hover {
+    background-color: #1d1f23;
+    border-radius: 0 0 15px 15px;
+}

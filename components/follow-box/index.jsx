@@ -5,7 +5,7 @@ import { getUsers } from '@/services/data'
 import Link from 'next/link'
 
 async function FollowBox() {
-    const { users } = await getUsers()
+    const users = await getUsers()
 
     return (
         <section className={style.followBox}>
@@ -13,22 +13,22 @@ async function FollowBox() {
             <ul>
 
                 {users &&
-                    users.slice(10, 13).map(user => (
+                    users.slice(5, 8).map(user => (
                         <li key={user.id}>
-                            <Link href={'/'}>
+                            <Link href={`/${user["login"].username}`}>
                                 <div className={style.followBoxUserIMG}>
                                     <Image
-                                        src={user.image}
-                                        alt={user.username}
+                                        src={`https://robohash.org/${user["login"].username}`}
+                                        alt={user["login"].username}
                                         fill
                                         placeholder='blur'
+                                        blurDataURL={`https://robohash.org/${user["login"].username}`}
                                         sizes="(max-width: 768px) 40px, (max-width: 1200px) 40px, 40px"
-                                        blurDataURL={user.image}
                                     />
                                 </div>
                                 <div className={style.followBoxUserDetails}>
-                                    <p>{user.firstName + ' ' + user.lastName}</p>
-                                    <p>{'@' + user.username}</p>
+                                    <p>{user.firstname + ' ' + user.lastname}</p>
+                                    <p>{'@' + user["login"].username}</p>
                                     <button>Takip et</button>
                                 </div>
                             </Link>
