@@ -4,6 +4,7 @@ import style from './style.module.css'
 import Image from 'next/image'
 
 function PostComponent({ posts, users, profilePage, isStatus }) {
+
     const userName = (id) => {
         const user = users.filter(user => user.id === id)
         // console.log(user && user.slug);
@@ -17,10 +18,10 @@ function PostComponent({ posts, users, profilePage, isStatus }) {
     return (
         <>
             {posts &&
-                posts.filter(post => isStatus ? post.id === Number(isStatus) : profilePage ? post.userId === profilePage[0].id : post).map((post, index) => (
+                posts.filter(post => isStatus ? post.id === Number(isStatus) : profilePage ? post.userId === profilePage.id : post).map((post, index) => (
                     <article key={index} className={style.article}>
                         <div className={style.userIMG}>
-                            <Link href={!profilePage ? '../../' + userName(post.userId) : '../../' + profilePage[0]["login"].username}>
+                            <Link href={!profilePage ? '../../' + userName(post.userId) : '../../' + profilePage["login"].username}>
                                 <Image src={`https://robohash.org/${userName(post.userId)}`}
                                     alt={!profilePage ? userName(post.userId) : profilePage["login"].username}
                                     fill
@@ -31,14 +32,14 @@ function PostComponent({ posts, users, profilePage, isStatus }) {
                             </Link>
                         </div>
                         <div className={style.postBody}>
-                            <Link href={!profilePage ? '../../' + userName(post.userId) : '../../' + profilePage[0]["login"].username}>
-                                <h4>{!profilePage ? userFullName(post.userId) : profilePage[0].firstname + ' ' + profilePage[0].lastname} </h4>
+                            <Link href={!profilePage ? '../../' + userName(post.userId) : '../../' + profilePage["login"].username}>
+                                <h4>{!profilePage ? userFullName(post.userId) : profilePage.firstname + ' ' + profilePage.lastname} </h4>
                             </Link>
                             <span>
-                                @{!profilePage ? userName(post.userId) : profilePage[0]["login"].username}
+                                @{!profilePage ? userName(post.userId) : profilePage["login"].username}
                             </span>
                             <svg viewBox="0 0 24 24"><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></svg>
-                            <Link href={!profilePage ? '/' + userName(post.userId) + '/status/' + post.id : profilePage[0]["login"].username + '/status/' + post.id}>
+                            <Link href={!profilePage ? '/' + userName(post.userId) + '/status/' + post.id : profilePage["login"].username + '/status/' + post.id}>
                                 <p>{post.content.slice(0, 250)}...</p>
                             </Link>
                         </div>
