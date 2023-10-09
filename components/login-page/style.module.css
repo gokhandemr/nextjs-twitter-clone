@@ -1,0 +1,16 @@
+.loginPageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loginPageBottom {
+    display: flex;
+    padding: 16px;
+}
+
+.loginPageBottom a:hover {
+    text-decoration: underline;
+}

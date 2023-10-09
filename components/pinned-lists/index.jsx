@@ -1,13 +1,15 @@
 import style from './style.module.css'
 
-function PinnedLists({ isOther }) {
+function PinnedLists({ isOther, params, userCookie }) {
+    console.log(isOther.login.uuid === userCookie ? 'okey' : 'no');
+    const userActive = isOther.login.uuid === userCookie ? true : false
     return (
         <div className={style.pinnedLists}>
             {
-                isOther === 'johndoe' && <h3>Sabitlenen Listeler</h3>
+                userActive && <h3>Sabitlenen Listeler</h3>
             }
             {
-                isOther === 'johndoe' ? <p>Burada henüz hiçbir şey görünmüyor. Hızlıca erişmek istediğin favori Listelerini üste sabitleyebilirsin.</p> : <p style={{ fontSize: '31px', fontWeight: '800', textAlign: 'center', color: '#ddd' }}>@{isOther} henüz Liste oluşturmadı</p>
+                userActive ? <p>Burada henüz hiçbir şey görünmüyor. Hızlıca erişmek istediğin favori Listelerini üste sabitleyebilirsin.</p> : <p style={{ fontSize: '31px', fontWeight: '800', textAlign: 'center', color: '#ddd' }}>@{params} henüz Liste oluşturmadı</p>
             }
 
         </div>

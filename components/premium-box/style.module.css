@@ -9,7 +9,7 @@
     z-index: 20;
 }
 
-.premiumBox>div:first-child {
+div.premiumBox>div.premiumBoxContainer {
     width: 585px;
     background-color: black;
     margin: 35px auto;
@@ -17,6 +17,7 @@
     border-radius: 15px;
     padding: 16px;
     text-align: center;
+    height: auto;
 }
 
 .premiumBoxClose {

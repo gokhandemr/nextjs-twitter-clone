@@ -23,3 +23,18 @@ export const userButtonStore = create(
         userButtonInActive: () => set({ userButtonIsActive: false })
     }),
 )
+
+export const loginPageButtonStore = create(
+    (set) => ({
+        loginButtonIsActive: false,
+        loginButtonActive: () => set({ loginButtonIsActive: true }),
+        loginButtonInActive: () => set({ loginButtonIsActive: false })
+    }),
+)
+
+export const postStore = create(
+    (set, get) => ({
+        postCount: 10,
+        postCountAdd: () => set({ postCount: get().postCount < 30 ? get().postCount + 5 : get().postCount + 0 }),
+    }),
+)

@@ -7,16 +7,24 @@
     width: 300px;
     padding: 8px 0;
     border: 1px solid transparent;
+    z-index: 1;
 }
 
-.userDropdown a {
+.userDropdown a,
+.userDropdown button {
     padding: 12px 16px;
     font-weight: bold;
     font-size: 14px;
     height: auto;
     line-height: 20px;
+    background-color: transparent;
+    border: none;
+    color: #dedede;
 }
 
-.userDropdown a:hover {
+.userDropdown a:hover,
+.userDropdown button:hover {
     background-color: #16181c;
+    width:100%;
+    text-align: left;
 }

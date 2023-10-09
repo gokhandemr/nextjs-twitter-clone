@@ -4,15 +4,21 @@ import style from './style.module.css'
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
 import { userButtonStore } from '@/store'
+import { deleteCookie } from 'cookies-next';
+import { useRouter } from 'next/navigation';
 
-function UserDropdown() {
+function UserDropdown({ user }) {
     const buttonClose = userButtonStore((state) => state.userButtonInActive)
     const ref = useRef(null);
+    const router = useRouter();
     useClickAway(ref, buttonClose);
+
+    
+
     return (
         <div className={style.userDropdown} ref={ref}>
             <Link href={'/'}>Var olan bir hesap ekle</Link>
-            <Link href={'/'}>@Bret hesabından çıkış yap</Link>
+            <button onClick={() => (deleteCookie('user'), buttonClose(), router.push('/'), router.refresh())}>@{user[0]["login"].username} hesabından çıkış yap</button>
         </div>
     )
 }

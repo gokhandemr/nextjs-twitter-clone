@@ -1,12 +1,22 @@
 import Image from 'next/image'
 import style from './style.module.css'
 
-function ProfilePageDetails({ login, firstname, lastname, website, slug }) {
+function ProfilePageDetails({ login, firstname, id, lastname, website, userCookie }) {
+    const usersFilter = login.uuid === userCookie ? true : false
     const followed = Math.floor(Math.random() * 100)
     const follower = Math.floor(followed * 1.5)
     return (
         <div className={style.userPage}>
-            <div className={style.banner}></div>
+            <div className={style.banner}>
+                <Image
+                    src={`https://picsum.photos/id/${10+id}/600/220`}
+                    alt={firstname}
+                    fill
+                    placeholder='blur'
+                    blurDataURL={`https://picsum.photos/id/${10+id}/600/220`}
+                    sizes="600px"
+                />
+            </div>
             <div>
                 <div className={style.profilePhoto}>
                     <Image
@@ -18,7 +28,7 @@ function ProfilePageDetails({ login, firstname, lastname, website, slug }) {
                         sizes="140px"
                     />
                 </div>
-                {slug === 'johndoe' && <button>Profili Ayarla</button>}
+                {usersFilter && <button>Profili düzenle</button>}
             </div>
             <div>
                 <h3>{firstname + ' ' + lastname}</h3>
@@ -35,7 +45,7 @@ function ProfilePageDetails({ login, firstname, lastname, website, slug }) {
                 <span><strong>{followed}</strong> Takip edilen</span>
                 <span><strong>{follower}</strong> Takipçi</span>
             </div>
-            {slug !== 'johndoe' && <div>Takip ettiğin kimse takip etmiyor</div>}
+            {!usersFilter && <div>Takip ettiğin kimse takip etmiyor</div>}
 
         </div>
 

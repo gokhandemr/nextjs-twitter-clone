@@ -13,6 +13,7 @@ import AgendaBox from '@/components/agenda-box'
 import FollowBox from '@/components/follow-box'
 import Details from '@/components/details'
 
+
 async function MainComponent() {
   const [posts, users] = await Promise.all([getPosts(), getUsers()])
 
@@ -21,7 +22,7 @@ async function MainComponent() {
       <main>
         <MainTop />
         <MainForm />
-        <PostComponent posts={posts.slice(0, 10).reverse()} users={users} />
+        <PostComponent posts={posts} users={users} />
       </main>
       <aside>
         <SearchComponent />

@@ -6,8 +6,13 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'robohash.org',
             },
+            {
+                protocol: 'https',
+                hostname: 'picsum.photos',
+            },
         ],
     },
+    reactStrictMode: false,
 }
 
 module.exports = nextConfig

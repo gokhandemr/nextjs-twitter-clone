@@ -2,6 +2,7 @@
     width: 100%;
     height: 200px;
     background-color: rgb(51, 54, 57);
+    position: relative;
 }
 
 .userPage>div:nth-child(2) {

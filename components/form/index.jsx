@@ -4,7 +4,7 @@ import userPhoto from '../../img/userPhoto.png'
 import Image from 'next/image'
 import { useState } from 'react'
 
-function MainForm() {
+function MainForm({ isStatus }) {
     const [inputValue, setInputValue] = useState('')
     const [topButton, setTopButton] = useState(false)
 
@@ -27,14 +27,14 @@ function MainForm() {
             </div>
 
             <form className={style.form} onSubmit={(e) => (formSubmitFunction(e))} >
-                <div style={{ marginBottom: '15px', display: `${topButton ? 'inline-flex' : 'none'}` }} className={style.formTopArea}>Herkes</div>
-                <textarea placeholder='Neler oluyor?' value={inputValue} onChange={(e) => (setInputValue(e.target.value))} maxLength="280" />
-                <div style={{ display: `${topButton ? 'inline-block' : 'none'}` }} className={style.formTextBottom}>
+                {!isStatus && <div style={{ marginBottom: '15px', display: `${topButton ? 'inline-flex' : 'none'}` }} className={style.formTopArea}>Herkes</div>}
+                <textarea placeholder={`${isStatus ? 'Yanıtını gönder' : 'Neler oluyor?'}`} value={inputValue} onChange={(e) => (setInputValue(e.target.value))} maxLength="280" />
+                {!isStatus && <div style={{ display: `${topButton ? 'inline-block' : 'none'}` }} className={style.formTextBottom}>
                     <div>
                         <svg viewBox="0 0 24 24" > <path d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.25 10.48L10.5 17.5l-2-1.5v-3.5L7.5 9 5.03 7.59c1.42-2.24 3.89-3.75 6.72-3.84L11 6l-2 .5L8.5 9l5 1.5-1.75 1.73zM17 14v-3l-1.5-3 2.88-1.23c1.17 1.42 1.87 3.24 1.87 5.23 0 1.3-.3 2.52-.83 3.61L17 14z"></path></svg>
                         Herkes yanıtlayabilir
                     </div>
-                </div>
+                </div>}
                 <div className={style.formBottomArea}>
                     <div>
                         <svg viewBox="0 0 24 24"><path d="M3 5.5C3 4.119 4.119 3 5.5 3h13C19.881 3 21 4.119 21 5.5v13c0 1.381-1.119 2.5-2.5 2.5h-13C4.119 21 3 19.881 3 18.5v-13zM5.5 5c-.276 0-.5.224-.5.5v9.086l3-3 3 3 5-5 3 3V5.5c0-.276-.224-.5-.5-.5h-13zM19 15.414l-3-3-5 5-3-3-3 3V18.5c0 .276.224.5.5.5h13c.276 0 .5-.224.5-.5v-3.086zM9.75 7C8.784 7 8 7.784 8 8.75s.784 1.75 1.75 1.75 1.75-.784 1.75-1.75S10.716 7 9.75 7z"></path></svg>
@@ -46,9 +46,9 @@ function MainForm() {
                     </div>
                     {inputValue === ''
                         ?
-                        <button style={{ opacity: `${inputValue === '' ? '.5' : '1'}` }} disabled>Gönder</button>
+                        <button style={{ opacity: `${inputValue === '' ? '.5' : '1'}` }} disabled>{isStatus ? 'Yanıtla' : 'Gönder'}</button>
                         :
-                        <button style={{ opacity: `${inputValue === '' ? '.5' : '1'}` }} >Gönder</button>
+                        <button style={{ opacity: `${inputValue === '' ? '.5' : '1'}` }} >{isStatus ? 'Yanıtla' : 'Gönder'}</button>
                     }
                 </div>
 

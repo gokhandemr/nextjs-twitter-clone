@@ -2,12 +2,29 @@
 import Link from 'next/link'
 import style from './style.module.css'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { postStore } from '@/store'
 
 function PostComponent({ posts, users, profilePage, isStatus }) {
+    const [isWindow, setIsWindow] = useState(false)
+
+    const postStoreCount = postStore((state) => state.postCount)
+    const postStoreCountAdd = postStore((state) => state.postCountAdd)
+
+    useEffect(() => { setIsWindow(true) }, [])
+
+    const handleInfiniteScroll = () => {
+        if (isWindow) {
+            const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+            if (endOfPage) {
+                postStoreCountAdd()
+            }
+        }
+    };
+    isWindow && window.addEventListener("scroll", handleInfiniteScroll);
 
     const userName = (id) => {
         const user = users.filter(user => user.id === id)
-        // console.log(user && user.slug);
         return user && user[0]["login"].username
     }
     const userFullName = (id) => {
@@ -18,8 +35,8 @@ function PostComponent({ posts, users, profilePage, isStatus }) {
     return (
         <>
             {posts &&
-                posts.filter(post => isStatus ? post.id === Number(isStatus) : profilePage ? post.userId === profilePage.id : post).map((post, index) => (
-                    <article key={index} className={style.article}>
+                posts.slice(0, postStoreCount).filter(post => isStatus ? post.id === Number(isStatus) : profilePage ? post.userId === profilePage.id : post).map((post, index) => (
+                    <article key={index} className={style.article} style={{ padding: `${isStatus && '12px 0'}` }}>
                         <div className={style.userIMG}>
                             <Link href={!profilePage ? '../../' + userName(post.userId) : '../../' + profilePage["login"].username}>
                                 <Image src={`https://robohash.org/${userName(post.userId)}`}
@@ -43,7 +60,10 @@ function PostComponent({ posts, users, profilePage, isStatus }) {
                                 <p>{post.content.slice(0, 250)}...</p>
                             </Link>
                         </div>
-                        <div className={style.postBottomIcons}>
+                        {isStatus &&
+                            <div style={{ color: '#71767b', fontSize: '15px', width: '100%', textAlign: 'left', borderBottom: '1px solid #444', padding: '16px 0' }}>{post.publishedAt} &middot; <strong style={{ color: '#dedede' }}>{post.title.length}</strong> Görüntülenme</div>
+                        }
+                        <div className={style.postBottomIcons} style={{ width: `${isStatus && '100%'}` }}>
                             <div>
                                 <svg viewBox="0 0 24 24"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"></path></svg>
                                 <span>100</span>

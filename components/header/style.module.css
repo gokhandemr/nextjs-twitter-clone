@@ -1,5 +1,4 @@
 .header {
-    margin-right: -5px;
     color: #e7e9ea;
 }
 
@@ -8,10 +7,16 @@
 }
 
 .header>div:first-child {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headerContainer {
     position: fixed;
+    width: 275px;
+    height: 100%;
     top: 0;
     padding-top: 3px;
-    height: 100%;
     overflow-y: auto;
 }
 
@@ -87,7 +92,7 @@
 }
 
 .userIMG {
-    width: 40px;
+    width: 44px;
     height: 40px;
     position: relative;
     margin-right: 15px;

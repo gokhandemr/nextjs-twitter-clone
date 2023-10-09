@@ -13,11 +13,12 @@ import MainTop from '@/components/main-top';
 import ProfilePageDetails from '@/components/profile-page-details';
 import PostComponent from '@/components/post';
 import ProfilePageNav from '@/components/profile-page-nav';
+import MainForm from '@/components/form';
+import { cookies } from 'next/headers';
 
 export async function generateMetadata({ params }) {
     const users = await getUsers()
     const userFiltered = users.filter(user => user["login"].username === params.slug[0])
-
     if (userFiltered.length <= 0) {
         notFound()
     } else if (params.slug[1] && params.slug[1] !== 'lists' && params.slug[1] !== 'status') {
@@ -41,29 +42,33 @@ export async function generateMetadata({ params }) {
 
 async function page({ params }) {
     const [users, posts] = await Promise.all([getUsers(), getPosts()])
+    const cookieStore = cookies()
+    const userCookie = cookieStore.get('user')
+    // const userFiltered = users.filter(user => user["login"].uuid === userCookie.value)
     const userFiltered = users.filter(user => user["login"].username === params.slug[0])
 
     return (
         <>
-            <main>
+            <main style={{ padding: `${params.slug[1] === 'status' && '0 16px'}` }}>
                 {
                     params.slug[1] === 'status'
                         ?
                         <>
                             <MainTop isStatus={'isStatus'} />
                             <PostComponent posts={posts} users={users} isStatus={params.slug[2]} />
+                            <MainForm isStatus={'isStatus'} />
                         </>
                         :
                         params.slug[1] === 'lists'
                             ?
                             <>
                                 <SearchComponent isMain={'isMain'} isLists={'isLists'} />
-                                <PinnedLists isOther={userFiltered[0]["login"].username} />
+                                <PinnedLists isOther={userFiltered[0]} params={params.slug[0]} userCookie={userCookie && userCookie.value} />
                             </>
                             :
                             <>
                                 <MainTop name={userFiltered[0].firstname} isUserPage={'isUserPage'} />
-                                <ProfilePageDetails {...userFiltered[0]} slug={params.slug[0]} />
+                                <ProfilePageDetails {...userFiltered[0]} userCookie={userCookie && userCookie.value} />
                                 <ProfilePageNav />
                                 <PostComponent posts={posts} users={users} profilePage={userFiltered[0]} />
                             </>
