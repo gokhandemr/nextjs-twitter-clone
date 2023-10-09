@@ -13,9 +13,10 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
+  
+  const users = await getUsers()
   const cookieStore = cookies()
   const userCookie = cookieStore.get('user')
-  const users = await getUsers()
   const usersFiltered = userCookie && users.filter(user => user["login"].uuid === userCookie.value)
 
 
