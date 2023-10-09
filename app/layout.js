@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
       <body className={`${inter.className}`}>
         <div className='container'>
           {
-            usersFiltered.length > 0
+            usersFiltered && usersFiltered.length > 0
               ?
               <>
                 <Header user={usersFiltered && usersFiltered} />
