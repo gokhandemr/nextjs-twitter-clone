@@ -1,9 +1,5 @@
 import './globals.css'
-import Header from '@/components/header'
-import LoginPage from '@/components/login-page'
-import { getUsers } from '@/services/data'
 import { Inter } from 'next/font/google'
-import { cookies } from 'next/headers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,27 +8,13 @@ export const metadata = {
   description: 'Next.js kullanarak hazırladığım twitter clone uygulaması',
 }
 
-export default async function RootLayout({ children }) {
-
-  const users = await getUsers()
-  const cookieStore = cookies()
-  const userCookie = cookieStore.get('user')
-  const usersFiltered = userCookie && users.filter(user => user["login"].uuid === userCookie.value)
+export default function RootLayout({ children }) {
 
   return (
     <html lang="tr">
       <body className={`${inter.className}`}>
         <div className='container'>
-          {
-            usersFiltered && usersFiltered.length > 0
-              ?
-              <>
-                <Header user={usersFiltered && usersFiltered} />
-                {children}
-              </>
-              :
-              <LoginPage />
-          }
+          {children}
         </div>
       </body>
     </html>
