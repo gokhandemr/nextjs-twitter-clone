@@ -8,7 +8,7 @@ function HeaderUser({ user }) {
     const userActiveButton = userButtonStore((state) => state.userButtonActive)
 
     return (
-        <Link href={'#'} className={style.user} onClick={userActiveButton}>
+        <Link href={'/#'} className={style.user} onClick={userActiveButton}>
             <div className={style.userIMG}>
                 <Image
                     src={`https://robohash.org/${user[0]["login"].username}`}
