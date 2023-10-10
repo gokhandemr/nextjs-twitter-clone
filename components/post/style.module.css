@@ -6,6 +6,10 @@
     flex-wrap: wrap;
 }
 
+.article:hover {
+    background-color: #080808;
+}
+
 .userIMG a {
     width: 40px;
     height: 40px;

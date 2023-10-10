@@ -11,18 +11,18 @@ import LoginBoxStepOne from './login-box-step-one'
 
 function LoginBox() {
     const [inputValue, setInputValue] = useState('')
-    const [username, setUserName] = useState('')
+    const [user, setUser] = useState([])
     const loginCloseButton = loginPageButtonStore((state) => state.loginButtonInActive)
 
     const formSubmitFunction = async (e) => {
         e.preventDefault()
-        const userNameFilter = inputValue.replace(/[</>\\*'_!$½%{&}=|"`~¨´]/g, '')
         const users = await getUsers()
+        const userNameFilter = inputValue.replace(/[</>\\*'_!$½%{&}=|"`~¨´]/g, '')
         const usersFilter = users.filter(user => user["login"].username === userNameFilter)
         if (usersFilter.length > 0) {
-            setUserName(usersFilter[0]["login"].username)
+            setUser(usersFilter)
         } else {
-            alert('hata')
+            alert('Malesef hesabını bulamadık')
         }
     }
 
@@ -38,13 +38,12 @@ function LoginBox() {
                         </svg>
                     </div>
                 </div>
-                {!username
+                {user.length <= 0
                     ?
                     <LoginBoxStepOne formSubmitFunction={formSubmitFunction} inputValue={inputValue} setInputValue={setInputValue} />
                     :
-                    <LoginBoxStepTwo username={username} />
+                    <LoginBoxStepTwo userFiltered={user} />
                 }
-
             </div>
         </div>
     )

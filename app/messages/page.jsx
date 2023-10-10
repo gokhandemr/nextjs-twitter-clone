@@ -7,9 +7,12 @@ export const metadata = {
 
 function MessagesPage() {
     return (
-        <main style={{ width: '980px', marginRight: '0px' }}>
-            <MessagesComponent />
-        </main>
+        <>
+            <main style={{ width: '980px', marginRight: '0px' }}>
+                <MessagesComponent />
+            </main>
+        </>
+
     )
 }
 

@@ -8,21 +8,20 @@ import { premiumBoxStore, showMoreStore, userButtonStore } from '@/store';
 import HeaderNav from './HeaderNav';
 import HeaderSendButton from './HeaderSendButton';
 import HeaderUser from './HeaderUser';
+// boxs
 import PremiumBoxComponent from '../premium-box'
 import ShowMoreComponent from '../show-more';
 import UserDropdown from '../user-dropdown';
 
 
+
 function Header({ user }) {
-    const [isClient, setIsClient] = useState(false)
+    const [isWindow, setIsWindow] = useState(false)
+    useEffect(() => { setIsWindow(true) }, [])
+
     const premiumBoxİsActive = premiumBoxStore((state) => state.premiumBoxIsActive)
     const showMoreIsActive = showMoreStore((state) => state.showMoreIsActive)
     const userButtonIsActive = userButtonStore((state) => state.userButtonIsActive)
-
-
-    useEffect(() => {
-        setIsClient(true)
-    }, [])
 
     return (
         <header className={style.header}>
@@ -39,13 +38,13 @@ function Header({ user }) {
                 </div>
             </div>
 
-            {(isClient && premiumBoxİsActive) &&
+            {(isWindow && premiumBoxİsActive) &&
                 <PremiumBoxComponent />
             }
-            {(isClient && showMoreIsActive) &&
+            {(isWindow && showMoreIsActive) &&
                 <ShowMoreComponent />
             }
-            {(isClient && userButtonIsActive) &&
+            {(isWindow && userButtonIsActive) &&
                 <UserDropdown user={user} />
             }
         </header>

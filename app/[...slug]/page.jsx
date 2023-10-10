@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getPosts, getUsers } from '@/services/data';
+import { cookies } from 'next/headers';
 
 // aside components
 import AgendaBox from '@/components/agenda-box';
@@ -14,7 +15,6 @@ import ProfilePageDetails from '@/components/profile-page-details';
 import PostComponent from '@/components/post';
 import ProfilePageNav from '@/components/profile-page-nav';
 import MainForm from '@/components/form';
-import { cookies } from 'next/headers';
 
 export async function generateMetadata({ params }) {
     const users = await getUsers()
@@ -44,7 +44,6 @@ async function page({ params }) {
     const [users, posts] = await Promise.all([getUsers(), getPosts()])
     const cookieStore = cookies()
     const userCookie = cookieStore.get('user')
-    // const userFiltered = users.filter(user => user["login"].uuid === userCookie.value)
     const userFiltered = users.filter(user => user["login"].username === params.slug[0])
 
     return (

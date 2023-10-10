@@ -2,7 +2,7 @@ import style from './style.module.css'
 
 function HeaderSendButton() {
     return (
-        <button href={'/'} className={style.button}>
+        <button className={style.button}>
             Gönder
         </button>
     )

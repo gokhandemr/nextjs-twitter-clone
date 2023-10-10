@@ -37,13 +37,21 @@
 }
 
 .header a,
-.nav a {
+.nav a,
+.nav button {
     height: 50px;
     display: flex;
     align-items: center;
+    color: #e7e9ea;
 }
 
-.nav a span {
+.nav button {
+    background-color: transparent;
+    border: none;
+}
+
+.nav a span,
+.nav button span {
     margin-right: 16px;
     margin-left: 20px;
     line-height: 24px;
@@ -89,14 +97,19 @@
     margin: 14px 0;
     border-radius: 35px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: #ddd
 }
 
 .userIMG {
-    width: 44px;
+    width: 40px;
     height: 40px;
     position: relative;
-    margin-right: 15px;
-    float: left;
+    margin: 0 15px 0 0;
+    padding: 0;
 }
 
 .userIMG img {
@@ -105,19 +118,22 @@
 }
 
 .user svg {
-    width: 18px;
+    width: 25px;
     height: 18px;
 }
 
 .userDetails {
-    float: left;
     font-size: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .userDetails>:first-child {
-    width: 100%;
-    display: inline-block;
     font-weight: 700;
+    margin-bottom: 2px;
+    width: 100%;
+    text-align: left;
 }
 
 .user>svg {
@@ -127,4 +143,8 @@
 .nav a.active span,
 .nav a.active svg {
     font-weight: 800;
+}
+
+.lightText {
+    color: #6d6d6d;
 }
