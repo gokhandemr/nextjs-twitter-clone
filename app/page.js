@@ -1,3 +1,4 @@
+'use client'
 // services and Cookie
 import { getPosts, getUsers } from '@/services/data'
 
