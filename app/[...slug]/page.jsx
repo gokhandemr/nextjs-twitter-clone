@@ -15,6 +15,7 @@ import ProfilePageDetails from '@/components/profile-page-details';
 import PostComponent from '@/components/post';
 import ProfilePageNav from '@/components/profile-page-nav';
 import MainForm from '@/components/form';
+import Header from '@/components/header';
 
 export async function generateMetadata({ params }) {
     const users = await getUsers()
@@ -48,6 +49,7 @@ async function page({ params }) {
 
     return (
         <>
+            <Header userCookie={userCookie} users={users} />
             <main style={{ padding: `${params.slug[1] === 'status' && '0 16px'}` }}>
                 {
                     params.slug[1] === 'status'
