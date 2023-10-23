@@ -16,22 +16,22 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const users = await getUsers()
-  const cookieStore = await cookies()
-  const userCookie = await cookieStore.get('user')
-  const usersFiltered = await users.filter(user => userCookie && user["login"].uuid === userCookie.value)
+
+  const cookieStore = cookies()
+  const userCookie = cookieStore.get('user')
 
   return (
     <html lang="tr">
       <body className={`${inter.className}`}>
         <div className='container'>
-          {usersFiltered.length <= 0
+          {userCookie
             ?
-            <LoginPage />
-            :
             <>
-              <Header user={usersFiltered} />
+              <Header userCookie={userCookie} users={users} />
               {children}
             </>
+            :
+            <LoginPage />
           }
 
         </div>

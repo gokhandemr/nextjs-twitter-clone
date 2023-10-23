@@ -12,10 +12,13 @@ import HeaderUser from './HeaderUser';
 import PremiumBoxComponent from '../premium-box'
 import ShowMoreComponent from '../show-more';
 import UserDropdown from '../user-dropdown';
+import { getUsers } from '@/services/data';
 
 
 
-function Header({ user }) {
+function Header({ userCookie, users }) {
+    const user = users.filter(item => item.login.uuid === userCookie.value)
+
     const [isWindow, setIsWindow] = useState(false)
     useEffect(() => { setIsWindow(true) }, [])
 
